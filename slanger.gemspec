@@ -42,6 +42,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency    "pry-byebug",       "~> 2.0.0"
   s.add_development_dependency     "bundler",         "~> 1.5"
   s.add_development_dependency     "rake",            "~> 13.0.1"
+  s.add_development_dependency     "bundler-audit",   "~> 0.6.1"
 
   s.files                       = Dir["README.md", "lib/**/*", "slanger.rb"]
   s.require_path                = "."
