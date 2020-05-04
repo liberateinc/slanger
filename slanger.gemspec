@@ -38,8 +38,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency    "timecop",          "~> 0.3.5"
   s.add_development_dependency    "webmock",          "~> 1.8.7"
   s.add_development_dependency    "mocha",            "~> 0.13.2"
-  s.add_development_dependency    "pry",              "~> 0.10.1"
-  s.add_development_dependency    "pry-byebug",       "~> 2.0.0"
   s.add_development_dependency     "bundler",         "~> 1.5"
   s.add_development_dependency     "rake",            "~> 13.0.1"
   s.add_development_dependency     "bundler-audit",   "~> 0.6.1"
