@@ -4,6 +4,7 @@ require 'em-hiredis'
 require 'rack'
 require 'active_support/core_ext/string'
 require File.join(File.dirname(__FILE__), 'lib', 'slanger', 'version')
+require File.join(File.dirname(__FILE__), 'lib', 'event_machine_extensions')
 
 module Slanger; end
 
