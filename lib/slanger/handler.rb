@@ -41,13 +41,13 @@ module Slanger
     rescue JSON::ParserError
       error({ code: 5001, message: "Invalid JSON" })
     rescue Exception => e
-      error({ code: 500, message: "#{e.message}\n #{e.backtrace.join "\n"}" })
+      error({ code: 500, message: "Unknown error occurred. Please report this to the server's operator." })
     end
 
     def onclose
 
       subscriptions = @subscriptions.select { |k,v| k && v }
-      
+
       subscriptions.each_key do |channel_id|
         subscription_id = subscriptions[channel_id]
         Channel.unsubscribe channel_id, subscription_id
@@ -57,7 +57,7 @@ module Slanger
 
     def authenticate
       if !valid_app_key? app_key
-        error({ code: 4001, message: "Could not find app by key #{app_key}" })
+        error({ code: 4001, message: "Could not find app by given key" })
         @socket.close_websocket
       elsif !valid_protocol_version?
         error({ code: 4007, message: "Unsupported protocol version" })
@@ -82,7 +82,7 @@ module Slanger
       klass      = subscription_klass channel_id
 
       if @subscriptions[channel_id]
-        error({ code: nil, message: "Existing subscription to #{channel_id}" })
+        error({ code: nil, message: "Existing subscription to given channel_id" })
       else
         @subscriptions[channel_id] = klass.new(connection.socket, connection.socket_id, msg).subscribe
       end

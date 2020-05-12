@@ -3,7 +3,7 @@ require "bundler/gem_tasks"
 require 'bundler/audit/task'
 
 desc 'Default: run specs.'
-task :default => :spec
+task :default => :all
 
 desc "Run specs"
 RSpec::Core::RakeTask.new do |t|
@@ -14,3 +14,5 @@ desc 'Audit: check for vulnerabilities'
 task audit: 'bundle:audit'
 
 Bundler::Audit::Task.new
+
+multitask :all => [:spec, 'bundle:audit']

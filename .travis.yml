@@ -1,11 +1,9 @@
 language: ruby
-
+dist: xenial
+os: linux
 rvm:
   - 2.6.0
 env:
   - DB=redis
-
 services:
-  - redis-server
-
-sudo: false
+  - redis

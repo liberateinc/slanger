@@ -23,7 +23,7 @@ describe 'Integration' do
             count: 2,
             last_event: 'pusher:error'
 
-          expect(JSON.parse(messages.last['data'])['message']).to match /^Invalid signature: Expected HMAC SHA256 hex digest of/
+          expect(JSON.parse(messages.last['data'])['message']).to match /^Invalid signature/
         end
       end
     end
@@ -51,7 +51,7 @@ describe 'Integration' do
 
           # Channel id should be in the payload
           expect(messages.last['event']).to eq('pusher:error')
-          expect(JSON.parse(messages.last['data'])['message']).to match /^Invalid signature: Expected HMAC SHA256 hex digest of/
+          expect(JSON.parse(messages.last['data'])['message']).to match /^Invalid signature/
         end
       end
 

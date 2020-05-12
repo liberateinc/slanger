@@ -11,7 +11,6 @@ require 'have_attributes'
 require 'openssl'
 require 'socket'
 require 'timecop'
-require 'pry'
 require 'webmock/rspec'
 require 'slanger'
 
