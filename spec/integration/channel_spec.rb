@@ -52,7 +52,7 @@ describe 'Integration:' do
         end
      end
 
-      expect(messages.last).to eq({"event"=>"pusher:error", "data"=>"{\"code\":null,\"message\":\"Existing subscription to MY_CHANNEL\"}"})
+      expect(messages.last).to eq({"event"=>"pusher:error", "data"=>"{\"code\":null,\"message\":\"Existing subscription to given channel_id\"}"})
     end
 
     it 'supports unsubscribing to channels without closing the socket' do

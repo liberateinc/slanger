@@ -44,9 +44,7 @@ module Slanger
     end
 
     def handle_invalid_signature
-      message = "Invalid signature: Expected HMAC SHA256 hex digest of "
-      message << "#{socket_id}:#{channel_id}, but got #{auth}"
-
+      message = "Invalid signature."
       error({ message: message})
     end
   end

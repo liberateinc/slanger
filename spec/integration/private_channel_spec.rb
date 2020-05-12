@@ -40,7 +40,7 @@ describe 'Integration' do
         expect(messages).to have_attributes connection_established: true, count: 2, id_present: true, last_event:
           'pusher:error'
 
-        expect(JSON.parse(messages.last['data'])['message']).to match /^Invalid signature: Expected HMAC SHA256 hex digest of/
+        expect(JSON.parse(messages.last['data'])['message']).to match /^Invalid signature/
       end
     end
 
