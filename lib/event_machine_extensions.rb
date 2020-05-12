@@ -6,6 +6,6 @@ end
 
 class EventMachine::Hiredis::Client
   def respond_to_missing?(method_name, include_private = false)
-    ["hincrby","hset","hgetall"].include?(method_name.to_s) || super
+    ["hdel","hgetall","hincrby","hset","publish"].include?(method_name.to_s) || super
   end
 end
