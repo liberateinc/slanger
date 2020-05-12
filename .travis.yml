@@ -2,7 +2,7 @@ language: ruby
 dist: xenial
 os: linux
 rvm:
-  - 2.6.0
+  - 2.6
 env:
   - DB=redis
 services:
