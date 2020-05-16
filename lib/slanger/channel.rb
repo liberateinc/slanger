@@ -82,9 +82,10 @@ module Slanger
     # Send an event received from Redis to the EventMachine channel
     # which will send it to subscribed clients.
     def dispatch(message, channel)
-      push(Oj.dump(message, mode: :compat)) unless channel =~ /\Aslanger:/
-
       perform_client_webhook!(message)
+
+      s = message.delete 'socket_id'
+      push({:msg => Oj.dump(message, mode: :compat), :socket => s}) unless channel =~ /\Aslanger:/
     end
 
     def authenticated?

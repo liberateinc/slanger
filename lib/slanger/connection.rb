@@ -14,6 +14,10 @@ module Slanger
       socket.send Oj.dump(msg, mode: :compat) unless s == socket_id
     end
 
+    def push m
+      socket.send m[:msg] unless m[:socket] == socket_id
+    end
+
     def send_payload *args
       socket.send format(*args)
     end

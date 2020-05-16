@@ -1,7 +1,7 @@
 module Slanger
   class Subscription
     attr_accessor :connection, :socket
-    delegate :send_payload, :send_message, :error, :socket_id, to: :connection
+    delegate :push, :send_payload, :send_message, :error, :socket_id, to: :connection
 
     def initialize socket, socket_id, msg
       @connection = Connection.new socket, socket_id
@@ -11,7 +11,7 @@ module Slanger
     def subscribe
       send_payload channel_id, 'pusher_internal:subscription_succeeded'
 
-      channel.subscribe { |m| send_message m }
+      channel.subscribe { |m| push m }
     end
 
     private
